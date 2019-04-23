@@ -12,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) throws LifecycleException {
         Tomcat tomcat = new Tomcat();
-        tomcat.setPort(7070);
+        tomcat.setPort(5050);
         Context context = tomcat.addContext("", null);
-        tomcat.addServlet(context, "helloworldservlet", new HelloWorldServlet());
+        Tomcat.addServlet(context, "helloworldservlet", new HelloWorldServlet());
         context.addServletMappingDecoded("/", "helloworldservlet");
         tomcat.start();
         tomcat.getServer().await();
