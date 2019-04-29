@@ -36,7 +36,7 @@ org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfigura
 org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration,\
 
  */
-public class Main {
+public class SpringEmbededTomcat {
 
     public static void main(String[] args) throws LifecycleException {
         //First it comes here to load Boot Loader Class
@@ -82,11 +82,15 @@ class TomcatLauncher {
             }
         }).start();
     }
+    
+    
 }
 
 class HelloWorldServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Inside My servlet");
         resp.getWriter().println("<!DOCTYPE html>\n" +
